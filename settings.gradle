@@ -1,0 +1,5 @@
+rootProject.name = 'triangle-calculator'
+include 'application'
+include 'usecases'
+include 'web'
+
