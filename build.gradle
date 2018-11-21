@@ -28,10 +28,22 @@ subprojects {
 		mavenCentral()
 	}
 
-
 	dependencies {
+		testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+		testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
 		compileOnly 'org.projectlombok:lombok:1.18.4'
 		implementation('org.springframework.boot:spring-boot-starter')
 		testImplementation('org.springframework.boot:spring-boot-starter-test')
+	}
+
+	test {
+		useJUnitPlatform()
+		// show standard out and standard error of the test JVM(s) on the console
+		testLogging.showStandardStreams = true
+		// Always run tests, even when nothing changed.
+		dependsOn 'cleanTest'
+		testLogging {
+			events = ["PASSED", "FAILED", "SKIPPED"]
+		}
 	}
 }

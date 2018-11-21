@@ -9,4 +9,12 @@ public class TriangleDataInput {
     private Double side2;
     @Getter
     private Double side3;
+
+    public TriangleDataInput(Double side1, Double side2, Double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    public TriangleDataInput(){}
 }
